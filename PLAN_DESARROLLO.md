@@ -19,7 +19,7 @@ No se cambiaron mecánicas. En la copia de trabajo hay dos cambios de dependenci
 - **Rama activa:** `ultima-guerra`.
 - **Punto de partida:** etiqueta `v0.8.0-beta.582`, commit `875178d5a48a372a15340bc4ca9965a56c389e0b`.
 - **Commit local posterior:** `8e6cc353a2b10fe44c9e3a15c4571fa103c22e88` (`Remove AGENTS.md`).
-- **Remotos actuales:** `origin` y `upstream` apuntan al repositorio oficial `AscensionGameDev/Intersect-Engine`; se preparó el alias `upstream`, pero aún no existe remoto personal. No se hizo `push`.
+- **Remotos actuales:** `origin` apunta a `angelbaruffaldi-crypto/ultimaguerra`; `upstream` apunta a `AscensionGameDev/Intersect-Engine`. El remoto personal respondió como vacío y falta autenticar GitHub para publicar la rama local `ultima-guerra`.
 - **Submódulos confirmados al clonar:** LiteNetLib `e5cd7ea0069f57cf3ba99e638139499cc22442a8`; DockPanel Suite `a373cf7fbaa0a79c4790ac5cb26eba48944a58bc`.
 - **SDK instalado:** .NET 8.0.427 y 10.0.401. El motor documenta .NET 8 para desarrollo.
 - **Git instalado:** Git for Windows 2.56.0.windows.4.
@@ -185,7 +185,7 @@ La creación de cuenta y personaje se probó de extremo a extremo según confirm
 5. **Protocolo cliente-servidor:** modificaciones de combate/estadísticas deben coordinar paquetes, validación y representación.
 6. **Avisos de compilador:** el build incremental más reciente informó 79; priorizar alertas de dependencias y fallos funcionales, no limpiar todas sin clasificación.
 7. **Licencias:** los componentes de Intersect usan licencias distintas y los recursos tienen licencias separadas.
-8. **Fork remoto:** el alias `upstream` apunta al repositorio oficial; falta crear/configurar el remoto personal cuando exista el fork.
+8. **Fork remoto:** `origin` ya apunta al fork personal y `upstream` al repositorio oficial; falta autenticar y subir la rama local.
 
 ## 8. Plan de implementación recomendado
 
@@ -193,7 +193,7 @@ La creación de cuenta y personaje se probó de extremo a extremo según confirm
 
 1. Configurar una clave ImageSharp válida o evaluar una alternativa antes de compilar Release.
 2. Confirmar que la compilación ya no muestra el aviso de licencia de ImageSharp y revisar la generación de claves antes de usar Release.
-3. Preparar el remoto personal del fork cuando el usuario lo cree/seleccione, conservando `origin` como upstream.
+3. Autenticar GitHub y subir `ultima-guerra` a `origin`, manteniendo `upstream` como referencia del motor oficial.
 
 ### Fase 1B — Diseño de cambios
 
