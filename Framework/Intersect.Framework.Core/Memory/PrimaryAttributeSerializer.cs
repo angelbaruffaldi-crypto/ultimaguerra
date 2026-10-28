@@ -18,6 +18,8 @@ public static class PrimaryAttributeSerializer
     {
         ArgumentNullException.ThrowIfNull(values);
 
+        ValidateValues(values);
+
         var document = new JObject
         {
             ["schemaVersion"] = CurrentSchemaVersion,
@@ -44,7 +46,10 @@ public static class PrimaryAttributeSerializer
             throw new InvalidDataException("Primary attribute data is empty.");
         }
 
-        var document = JToken.Parse(json);
+        var document = JToken.Parse(
+            json,
+            new JsonLoadSettings { DuplicatePropertyNameHandling = DuplicatePropertyNameHandling.Error }
+        );
         if (document is not JObject root)
         {
             throw new InvalidDataException(
@@ -74,6 +79,7 @@ public static class PrimaryAttributeSerializer
         }
 
         var result = defaults?.Copy() ?? new PrimaryAttributeValues();
+        var knownAttributeCount = 0;
         foreach (var property in values.Properties())
         {
             if (property.Value.Type != JTokenType.Integer)
@@ -81,10 +87,37 @@ public static class PrimaryAttributeSerializer
                 throw new InvalidDataException($"Primary attribute '{property.Name}' must be an integer.");
             }
 
-            result[ParseAttribute(property.Name)] = property.Value.Value<int>();
+            var parsedAttribute = ParseAttribute(property.Name);
+            var parsedValue = property.Value.Value<int>();
+            if (parsedValue < 0)
+            {
+                throw new InvalidDataException($"Primary attribute '{property.Name}' cannot be negative.");
+            }
+
+            result[parsedAttribute] = parsedValue;
+            knownAttributeCount++;
         }
 
+        if (defaults == null && knownAttributeCount != Enum.GetValues<PrimaryAttribute>().Length)
+        {
+            throw new InvalidDataException(
+                "Missing primary attribute values require defaults from the class descriptor."
+            );
+        }
+
+        ValidateValues(result);
         return result;
+    }
+
+    private static void ValidateValues(PrimaryAttributeValues values)
+    {
+        foreach (var attribute in Enum.GetValues<PrimaryAttribute>())
+        {
+            if (values[attribute] < 0)
+            {
+                throw new InvalidDataException($"Primary attribute '{attribute}' cannot be negative.");
+            }
+        }
     }
 
     private static PrimaryAttribute ParseAttribute(string key)
