@@ -203,9 +203,10 @@ La creación de cuenta y personaje se probó de extremo a extremo según confirm
 1. **Completado:** inventario inicial del sistema actual en `AUDITORIA_PREPARACION.md`.
 2. **Completado:** propuesta mecánica v0.1 en `PROPUESTA_REGLAS_MECANICAS_v0.1.md`.
 3. **Completado:** matriz inicial de datos y riesgos en `MATRIZ_MIGRACION_ATRIBUTOS.md`.
-4. Pendiente: cerrar formato versionado y conversión de datos antiguos; calibrar balance en una prueba vertical.
-5. Pendiente: definir pruebas de regresión y aceptación antes de implementar.
-6. En una fase posterior, validar en el motor los sprites ya guardados localmente en las carpetas `entities` y `paperdolls`.
+4. **Completado:** formato de almacenamiento y protocolo en `CONTRATO_DATOS_ATRIBUTOS_v1.md`.
+5. Pendiente: implementar modo de simulación y conversión reversible; calibrar balance en una prueba vertical.
+6. Pendiente: definir pruebas de regresión y aceptación antes de implementar.
+7. En una fase posterior, validar en el motor los sprites ya guardados localmente en las carpetas `entities` y `paperdolls`.
 
 ### Fase 2 — Implementación de atributos
 

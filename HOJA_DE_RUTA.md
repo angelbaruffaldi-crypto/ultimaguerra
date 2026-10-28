@@ -14,7 +14,7 @@ Esta hoja es el registro principal del avance. Cada tarea cambia a **COMPLETADO*
 | 0. Resguardar el código y preparar el fork | **COMPLETADO** | Código fuente versionado, rama propia publicada y `upstream` conservado. |
 | 1. Obtener una base técnica comprobada | **COMPLETADO** para Debug; **PENDIENTE** para Release | Pruebas y flujo local pasan; faltan resolver claves de red y verificar ImageSharp en Release. |
 | 2. Diseñar las reglas principales del juego | **EN CURSO** | Propuesta mecánica v0.1 escrita; faltan balance numérico y reglas de progresión/muerte/PvP. |
-| 3. Diseñar datos y migraciones | **EN CURSO** | Inventario y secuencia de migración preparados; falta concretar formatos y probar conversión/reversión. |
+| 3. Diseñar datos y migraciones | **EN CURSO** | Contrato, compatibilidad y conversión propuesta; falta implementar y probar el simulador/restauración. |
 | 4. Implementar una primera versión jugable | **PENDIENTE** | Bucle principal completo y probado en cliente/servidor/editor. |
 | 5. Crear mundo y contenido inicial | **PENDIENTE** | Zona inicial, enemigos, objetos, misiones y recorrido jugable. |
 | 6. Adaptar los sprites ampliados | **PENDIENTE** | Archivos LPC probados por acción/dirección; se decide si basta la configuración existente o hay que extender el renderizador. |
@@ -69,10 +69,10 @@ Esta hoja es el registro principal del avance. Cada tarea cambia a **COMPLETADO*
 ## Fase 3 — Diseñar datos y migraciones
 
 - **COMPLETADO** — Inventario inicial de datos afectados, conversión candidata y riesgos en `MATRIZ_MIGRACION_ATRIBUTOS.md`.
-- **PENDIENTE** — Definir formato versionado e identificadores estables para atributos primarios y estadísticas derivadas.
-- **PENDIENTE** — Diseñar compatibilidad para jugadores, clases, NPC, objetos, hechizos, condiciones/eventos y fórmulas existentes.
-- **PENDIENTE** — Definir migraciones y recuperación para SQLite y MySQL; probarlas con una copia de datos, nunca con la única copia.
-- **PENDIENTE** — Definir versiones cliente-servidor y comportamiento cuando sus datos o protocolos no coincidan.
+- **COMPLETADO** — Contrato de claves, JSON versionado, lectura heredada, red y conversión propuestos en `CONTRATO_DATOS_ATRIBUTOS_v1.md`.
+- **COMPLETADO** — Compatibilidad propuesta para jugadores, clases, NPC, objetos, hechizos, condiciones/eventos, fórmulas y protocolo cliente-servidor.
+- **PENDIENTE** — Implementar un informe de simulación y conversión/reversión para SQLite y MySQL; usar copias, nunca la única base.
+- **COMPLETADO** — Definido en el contrato que el protocolo se versiona y rechaza clientes incompatibles.
 - **PENDIENTE** — Especificar pruebas de regresión, aceptación y casos de fallo antes de implementar.
 
 **Cierre de fase:** plan de migración revisado y reversión demostrada en una copia de prueba.

@@ -43,7 +43,7 @@
 
 ## Próximos pasos
 
-La secuencia completa y el estado de cada tarea están en `HOJA_DE_RUTA.md`. El mapeo de impacto, la propuesta mecánica v0.1 y la matriz inicial de migración están documentados. No se han cambiado reglas ni código de mecánicas; la siguiente etapa es cerrar el formato de datos y preparar la implementación por partes.
+La secuencia completa y el estado de cada tarea están en `HOJA_DE_RUTA.md`. El mapeo de impacto, la propuesta mecánica v0.1, la matriz de migración y el contrato versionado de atributos están documentados. No se han cambiado reglas ni código de mecánicas; el siguiente paso técnico es implementar el lector compatible y un modo de simulación de migración.
 
 ## Decisiones confirmadas
 

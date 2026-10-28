@@ -4,6 +4,8 @@
 **Estado:** inventario inicial de superficies completado; plan de migración por probar.  
 **Diseño de referencia:** `PROPUESTA_REGLAS_MECANICAS_v0.1.md`.
 
+El contrato de almacenamiento y red está en `CONTRATO_DATOS_ATRIBUTOS_v1.md`. `DatabaseUtils.SaveIntArray` hoy serializa los arreglos como JSON posicional; por eso una fila heredada se puede detectar por su raíz-array antes de leerla.
+
 ## Inventario de datos afectados
 
 | Área | Datos actuales | Ubicación principal | Trabajo necesario |
