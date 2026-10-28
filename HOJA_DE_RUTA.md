@@ -15,7 +15,7 @@ Esta hoja es el registro principal del avance. Cada tarea cambia a **COMPLETADO*
 | 1. Obtener una base técnica comprobada | **COMPLETADO** para Debug; **PENDIENTE** para Release | Pruebas y flujo local pasan; faltan resolver claves de red y verificar ImageSharp en Release. |
 | 2. Diseñar las reglas principales del juego | **EN CURSO** | Propuesta mecánica v0.1 escrita; faltan balance numérico y reglas de progresión/muerte/PvP. |
 | 3. Diseñar datos y migraciones | **EN CURSO** | Contrato, compatibilidad y conversión propuesta; falta implementar y probar el simulador/restauración. |
-| 4. Implementar una primera versión jugable | **PENDIENTE** | Bucle principal completo y probado en cliente/servidor/editor. |
+| 4. Implementar una primera versión jugable | **EN CURSO** | Fundamento compartido para atributos agregado; integración de persistencia, servidor, editor y cliente pendiente. |
 | 5. Crear mundo y contenido inicial | **PENDIENTE** | Zona inicial, enemigos, objetos, misiones y recorrido jugable. |
 | 6. Adaptar los sprites ampliados | **PENDIENTE** | Archivos LPC probados por acción/dirección; se decide si basta la configuración existente o hay que extender el renderizador. |
 | 7. Preparar pruebas multijugador y operación | **PENDIENTE** | Copias de seguridad, seguridad, red, carga y recuperación comprobadas. |
@@ -81,12 +81,13 @@ Esta hoja es el registro principal del avance. Cada tarea cambia a **COMPLETADO*
 
 Cada subfase debe compilar y tener pruebas de servidor antes de continuar a la siguiente.
 
-1. **PENDIENTE — Sistema de atributos:** enum/tipos compartidos, cálculo de servidor, progresión, datos persistidos, paquetes, interfaz y editor.
-2. **PENDIENTE — Combate básico:** un ataque cuerpo a cuerpo, un enemigo, daño calculado en servidor, derrota y reaparición.
-3. **PENDIENTE — Habilidades:** coste, requisitos, enfriamiento, alcance, objetivos, efectos y sincronización cliente-servidor.
-4. **PENDIENTE — Equipo e inventario:** armas/armadura, requisitos, bonificaciones, botín y validación contra duplicación o paquetes manipulados.
-5. **PENDIENTE — NPC y progresión:** comportamiento mínimo, experiencia, niveles, recompensas y ajuste de dificultad.
-6. **PENDIENTE — Interfaz y editor:** formularios para configurar el contenido sin desalinear lo que valida el servidor.
+1. **EN CURSO — Base compartida de atributos:** enum de IDs estables, objeto de cinco valores, serializador JSON v1 y conversor legado aislado agregados; `Framework.Core` compila en Debug. Faltan pruebas e integración con persistencia, servidor, editor y cliente.
+2. **PENDIENTE — Sistema de atributos:** cálculo de servidor, progresión, paquetes, interfaz y editor.
+3. **PENDIENTE — Combate básico:** un ataque cuerpo a cuerpo, un enemigo, daño calculado en servidor, derrota y reaparición.
+4. **PENDIENTE — Habilidades:** coste, requisitos, enfriamiento, alcance, objetivos, efectos y sincronización cliente-servidor.
+5. **PENDIENTE — Equipo e inventario:** armas/armadura, requisitos, bonificaciones, botín y validación contra duplicación o paquetes manipulados.
+6. **PENDIENTE — NPC y progresión:** comportamiento mínimo, experiencia, niveles, recompensas y ajuste de dificultad.
+7. **PENDIENTE — Interfaz y editor:** formularios para configurar el contenido sin desalinear lo que valida el servidor.
 
 **Cierre de fase:** un jugador puede crear personaje, explorar una zona, combatir, obtener una recompensa, equiparla y progresar; los datos sobreviven al reinicio.
 

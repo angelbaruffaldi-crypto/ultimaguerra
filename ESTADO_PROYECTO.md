@@ -43,7 +43,7 @@
 
 ## Próximos pasos
 
-La secuencia completa y el estado de cada tarea están en `HOJA_DE_RUTA.md`. El mapeo de impacto, la propuesta mecánica v0.1, la matriz de migración y el contrato versionado de atributos están documentados. No se han cambiado reglas ni código de mecánicas; el siguiente paso técnico es implementar el lector compatible y un modo de simulación de migración.
+La secuencia completa y el estado de cada tarea están en `HOJA_DE_RUTA.md`. El mapeo, propuesta mecánica, matriz de migración y contrato v1 están documentados. Se agregaron los tipos compartidos, el serializador v1 y un conversor legado aislado; `Framework.Core` compiló en Debug sin errores. Falta integrar el lector y conectar persistencia/juego. No se alteraron combate, progresión ni datos existentes.
 
 ## Decisiones confirmadas
 

@@ -1,7 +1,7 @@
 # Contrato de datos de atributos — versión 1
 
 **Fecha:** 28 de octubre de 2026  
-**Estado:** diseño técnico; todavía no aplicado al código ni a bases de datos.  
+**Estado:** parcialmente aplicado al código. Los tipos compartidos, el serializador v1 y un conversor legado aislado existen; faltan integración, pruebas, persistencia y migraciones. No se han modificado bases de datos.
 **Reglas mecánicas relacionadas:** `PROPUESTA_REGLAS_MECANICAS_v0.1.md`.
 
 ## 1. Separación de conceptos
@@ -89,8 +89,8 @@ Para objetos, hechizos, rangos aleatorios y fórmulas, la conversión genera un 
 
 ## 7. Plan de implementación seguro
 
-1. Añadir tipos compartidos e IDs estables, sin cambiar todavía el combate existente.
-2. Añadir serializador v1 y lector v0/v1 con registro claro de errores.
+1. **COMPLETADO** — Añadir tipos compartidos e IDs estables, sin cambiar todavía el combate existente. `Framework.Core` compila en Debug.
+2. **EN CURSO** — Añadir serializador v1 y lector v0/v1 con registro claro de errores. Existen el serializador v1 y un conversor explícito de arreglos v0; falta integrarlos en un lector y añadir pruebas/informe.
 3. Añadir columnas de atributos primarios en SQLite y MySQL y reflejarlas en el modelo.
 4. Implementar conversión en modo de simulación: producir informe, no escribir filas.
 5. Revisar informe contra una copia de la base del usuario; conservar respaldo restaurable.
