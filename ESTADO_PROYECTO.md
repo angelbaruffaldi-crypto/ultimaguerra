@@ -43,7 +43,7 @@
 
 ## Próximos pasos
 
-La secuencia completa y el estado de cada tarea están en `HOJA_DE_RUTA.md`. El mapeo, propuesta mecánica, matriz de migración y contrato v1 están documentados. Se agregaron los tipos compartidos, el serializador v1 y un conversor legado aislado; `Framework.Core` compiló en Debug sin errores. Falta integrar el lector y conectar persistencia/juego. No se alteraron combate, progresión ni datos existentes.
+La secuencia completa y el estado de cada tarea están en `HOJA_DE_RUTA.md`. El mapeo, propuesta mecánica, matriz de migración y contrato v1 están documentados. Se agregaron los tipos compartidos, el serializador v1, el conversor legado y una vista previa de migración en memoria; esta no escribe bases de datos. `Framework.Core` compiló en Debug sin errores. Falta integrar lectura de bases, persistencia y juego. No se alteraron combate, progresión ni datos existentes.
 
 ## Decisiones confirmadas
 

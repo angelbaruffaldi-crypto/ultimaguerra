@@ -81,7 +81,7 @@ Esta hoja es el registro principal del avance. Cada tarea cambia a **COMPLETADO*
 
 Cada subfase debe compilar y tener pruebas de servidor antes de continuar a la siguiente.
 
-1. **EN CURSO — Base compartida de atributos:** enum de IDs estables, objeto de cinco valores, serializador JSON v1 y conversor legado aislado agregados; `Framework.Core` compila en Debug. Faltan pruebas e integración con persistencia, servidor, editor y cliente.
+1. **EN CURSO — Base compartida de atributos:** enum de IDs estables, objeto de cinco valores, serializador JSON v1, conversor legado y vista previa en memoria agregados; `Framework.Core` compila en Debug. Faltan pruebas e integración con bases, servidor, editor y cliente.
 2. **PENDIENTE — Sistema de atributos:** cálculo de servidor, progresión, paquetes, interfaz y editor.
 3. **PENDIENTE — Combate básico:** un ataque cuerpo a cuerpo, un enemigo, daño calculado en servidor, derrota y reaparición.
 4. **PENDIENTE — Habilidades:** coste, requisitos, enfriamiento, alcance, objetivos, efectos y sincronización cliente-servidor.

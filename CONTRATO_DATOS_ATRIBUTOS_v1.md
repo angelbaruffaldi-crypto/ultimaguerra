@@ -1,7 +1,7 @@
 # Contrato de datos de atributos — versión 1
 
 **Fecha:** 28 de octubre de 2026  
-**Estado:** parcialmente aplicado al código. Los tipos compartidos, el serializador v1 y un conversor legado aislado existen; faltan integración, pruebas, persistencia y migraciones. No se han modificado bases de datos.
+**Estado:** parcialmente aplicado al código. Los tipos compartidos, el serializador v1, el conversor legado y una vista previa en memoria existen; faltan integración con bases de datos, pruebas y migraciones. La vista previa no escribe datos.
 **Reglas mecánicas relacionadas:** `PROPUESTA_REGLAS_MECANICAS_v0.1.md`.
 
 ## 1. Separación de conceptos
@@ -90,9 +90,9 @@ Para objetos, hechizos, rangos aleatorios y fórmulas, la conversión genera un 
 ## 7. Plan de implementación seguro
 
 1. **COMPLETADO** — Añadir tipos compartidos e IDs estables, sin cambiar todavía el combate existente. `Framework.Core` compila en Debug.
-2. **EN CURSO** — Añadir serializador v1 y lector v0/v1 con registro claro de errores. Existen el serializador v1 y un conversor explícito de arreglos v0; falta integrarlos en un lector y añadir pruebas/informe.
+2. **EN CURSO** — Añadir serializador v1 y lector v0/v1 con registro claro de errores. Existen el serializador v1, el conversor explícito de arreglos v0 y una vista previa en memoria; falta integrarlos en la carga y conectar el informe a datos reales.
 3. Añadir columnas de atributos primarios en SQLite y MySQL y reflejarlas en el modelo.
-4. Implementar conversión en modo de simulación: producir informe, no escribir filas.
+4. **EN CURSO** — Implementar conversión en modo de simulación: el componente en memoria produce filas convertidas o errores y conserva los JSON originales; falta leer SQLite/MySQL y exportar el informe. No escribe filas.
 5. Revisar informe contra una copia de la base del usuario; conservar respaldo restaurable.
 6. Migrar descriptores de clases/NPC y adaptar el editor.
 7. Conectar cálculo primario→derivado en servidor y fórmulas; actualizar paquetes y vistas del cliente.
