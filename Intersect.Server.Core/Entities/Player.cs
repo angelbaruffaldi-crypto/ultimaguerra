@@ -82,6 +82,18 @@ public partial class Player : Entity
 
     public int StatPoints { get; set; }
 
+    /// <summary>
+    /// Versioned primary attributes. Kept separate from the legacy combat-stat arrays.
+    /// </summary>
+    [JsonIgnore]
+    public string PrimaryAttributesJson { get; set; }
+
+    /// <summary>
+    /// Versioned primary-attribute point allocations.
+    /// </summary>
+    [JsonIgnore]
+    public string AttributePointAllocationsJson { get; set; }
+
     [Column("Equipment"), JsonIgnore]
     public string EquipmentJson
     {

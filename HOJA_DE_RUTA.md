@@ -14,8 +14,8 @@ Esta hoja es el registro principal del avance. Cada tarea cambia a **COMPLETADO*
 | 0. Resguardar el código y preparar el fork | **COMPLETADO** | Código fuente versionado, rama propia publicada y `upstream` conservado. |
 | 1. Obtener una base técnica comprobada | **COMPLETADO** para Debug; **PENDIENTE** para Release | Pruebas y flujo local pasan; faltan resolver claves de red y verificar ImageSharp en Release. |
 | 2. Diseñar las reglas principales del juego | **EN CURSO** | Propuesta mecánica v0.1 escrita; faltan balance numérico y reglas de progresión/muerte/PvP. |
-| 3. Diseñar datos y migraciones | **EN CURSO** | Contrato, compatibilidad y conversión propuesta; falta implementar y probar el simulador/restauración. |
-| 4. Implementar una primera versión jugable | **EN CURSO** | Fundamento compartido para atributos agregado; integración de persistencia, servidor, editor y cliente pendiente. |
+| 3. Diseñar datos y migraciones | **EN CURSO** | Contrato y vista previa en memoria listos; campos/migraciones aditivas SQLite/MySQL agregados al código. Falta comprobarlos en copias y conectar el informe a datos reales. |
+| 4. Implementar una primera versión jugable | **EN CURSO** | Tipos y columnas de persistencia preparados; falta leer/escribir atributos y conectarlos al servidor, editor y cliente. |
 | 5. Crear mundo y contenido inicial | **PENDIENTE** | Zona inicial, enemigos, objetos, misiones y recorrido jugable. |
 | 6. Adaptar los sprites ampliados | **PENDIENTE** | Archivos LPC probados por acción/dirección; se decide si basta la configuración existente o hay que extender el renderizador. |
 | 7. Preparar pruebas multijugador y operación | **PENDIENTE** | Copias de seguridad, seguridad, red, carga y recuperación comprobadas. |
@@ -71,7 +71,8 @@ Esta hoja es el registro principal del avance. Cada tarea cambia a **COMPLETADO*
 - **COMPLETADO** — Inventario inicial de datos afectados, conversión candidata y riesgos en `MATRIZ_MIGRACION_ATRIBUTOS.md`.
 - **COMPLETADO** — Contrato de claves, JSON versionado, lectura heredada, red y conversión propuestos en `CONTRATO_DATOS_ATRIBUTOS_v1.md`.
 - **COMPLETADO** — Compatibilidad propuesta para jugadores, clases, NPC, objetos, hechizos, condiciones/eventos, fórmulas y protocolo cliente-servidor.
-- **PENDIENTE** — Implementar un informe de simulación y conversión/reversión para SQLite y MySQL; usar copias, nunca la única base.
+- **EN CURSO** — Dos columnas opcionales y migraciones aditivas de esquema para SQLite y MySQL están agregadas; el servidor compila. Falta ejecutarlas en copias de bases y comprobar esquema/rollback.
+- **EN CURSO** — La vista previa en memoria produce JSON propuesto, conserva los arreglos originales y reporta errores; falta leer filas reales y exportar un informe.
 - **COMPLETADO** — Definido en el contrato que el protocolo se versiona y rechaza clientes incompatibles.
 - **PENDIENTE** — Especificar pruebas de regresión, aceptación y casos de fallo antes de implementar.
 
@@ -81,7 +82,7 @@ Esta hoja es el registro principal del avance. Cada tarea cambia a **COMPLETADO*
 
 Cada subfase debe compilar y tener pruebas de servidor antes de continuar a la siguiente.
 
-1. **EN CURSO — Base compartida de atributos:** enum de IDs estables, objeto de cinco valores, serializador JSON v1, conversor legado y vista previa en memoria agregados; `Framework.Core` compila en Debug. Faltan pruebas e integración con bases, servidor, editor y cliente.
+1. **EN CURSO — Base compartida de atributos:** enum de IDs estables, objeto de cinco valores, serializador JSON v1, conversor legado y vista previa en memoria agregados; `Framework.Core` compila en Debug. Las columnas y migraciones SQLite/MySQL también están agregadas. Faltan verificar en bases de prueba e integrar servidor, editor y cliente.
 2. **PENDIENTE — Sistema de atributos:** cálculo de servidor, progresión, paquetes, interfaz y editor.
 3. **PENDIENTE — Combate básico:** un ataque cuerpo a cuerpo, un enemigo, daño calculado en servidor, derrota y reaparición.
 4. **PENDIENTE — Habilidades:** coste, requisitos, enfriamiento, alcance, objetivos, efectos y sincronización cliente-servidor.

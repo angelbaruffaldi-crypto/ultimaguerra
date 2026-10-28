@@ -689,6 +689,12 @@ namespace Intersect.Server.Migrations.MySql.Player
                         .HasColumnType("char(36)")
                         .UseCollation("ascii_general_ci");
 
+                    b.Property<string>("PrimaryAttributesJson")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("AttributePointAllocationsJson")
+                        .HasColumnType("longtext");
+
                     b.Property<string>("SpellCooldownsJson")
                         .HasColumnType("longtext")
                         .HasColumnName("SpellCooldowns");

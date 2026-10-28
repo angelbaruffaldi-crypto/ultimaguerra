@@ -627,6 +627,12 @@ namespace Intersect.Server.Migrations.Sqlite.Player
                     b.Property<Guid>("SharedMapInstanceId")
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("PrimaryAttributesJson")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("AttributePointAllocationsJson")
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("SpellCooldownsJson")
                         .HasColumnType("TEXT")
                         .HasColumnName("SpellCooldowns");

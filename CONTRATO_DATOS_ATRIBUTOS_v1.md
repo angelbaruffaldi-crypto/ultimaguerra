@@ -1,7 +1,7 @@
 # Contrato de datos de atributos — versión 1
 
 **Fecha:** 28 de octubre de 2026  
-**Estado:** parcialmente aplicado al código. Los tipos compartidos, el serializador v1, el conversor legado y una vista previa en memoria existen; faltan integración con bases de datos, pruebas y migraciones. La vista previa no escribe datos.
+**Estado:** parcialmente aplicado al código. Los tipos, serializador v1, conversor legado, vista previa en memoria y migraciones aditivas para SQLite/MySQL existen. Falta validar las migraciones en bases de prueba e integrar lectura/escritura de atributos. La vista previa no escribe datos.
 **Reglas mecánicas relacionadas:** `PROPUESTA_REGLAS_MECANICAS_v0.1.md`.
 
 ## 1. Separación de conceptos
@@ -48,6 +48,8 @@ El mismo formato se usa para valores base y puntos asignados, en campos distinto
 
 Agregar campos de texto separados para atributos base y asignaciones, por ejemplo `PrimaryAttributesJson` y `AttributePointAllocationsJson`. Conservar las columnas actuales `BaseStats` y `StatPointAllocations` para los valores derivados que aún consume el combate. Antes de convertir, archivar los arreglos originales completos en una copia legible (`LegacyStatsJson` y `LegacyStatPointsJson` o una tabla de respaldo). Retirar columnas heredadas solo en una migración posterior, una vez que la versión nueva lleve tiempo validada.
 
+Las migraciones aditivas agregan las dos columnas nuevas como opcionales y no convierten filas existentes. Su reversión está bloqueada para evitar descartar datos v1; cualquier vuelta atrás deberá respaldar y migrar esos valores explícitamente.
+
 ### Clases y NPC
 
 En los descriptores de contenido se agregan objetos versionados para valores base y crecimiento de atributos. Durante la conversión, los cuatro valores que tienen correspondencia se copian a atributos; Defense se conserva como valor derivado de clase/NPC. Las copias originales permanecen archivadas.
@@ -91,7 +93,7 @@ Para objetos, hechizos, rangos aleatorios y fórmulas, la conversión genera un 
 
 1. **COMPLETADO** — Añadir tipos compartidos e IDs estables, sin cambiar todavía el combate existente. `Framework.Core` compila en Debug.
 2. **EN CURSO** — Añadir serializador v1 y lector v0/v1 con registro claro de errores. Existen el serializador v1, el conversor explícito de arreglos v0 y una vista previa en memoria; falta integrarlos en la carga y conectar el informe a datos reales.
-3. Añadir columnas de atributos primarios en SQLite y MySQL y reflejarlas en el modelo.
+3. **EN CURSO** — Se agregaron dos columnas opcionales al modelo y migraciones de esquema para SQLite/MySQL; falta aplicarlas y comprobarlas en bases de prueba. Las migraciones no convierten personajes.
 4. **EN CURSO** — Implementar conversión en modo de simulación: el componente en memoria produce filas convertidas o errores y conserva los JSON originales; falta leer SQLite/MySQL y exportar el informe. No escribe filas.
 5. Revisar informe contra una copia de la base del usuario; conservar respaldo restaurable.
 6. Migrar descriptores de clases/NPC y adaptar el editor.

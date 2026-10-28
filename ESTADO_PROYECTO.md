@@ -43,7 +43,7 @@
 
 ## Próximos pasos
 
-La secuencia completa y el estado de cada tarea están en `HOJA_DE_RUTA.md`. El mapeo, propuesta mecánica, matriz de migración y contrato v1 están documentados. Se agregaron los tipos compartidos, el serializador v1, el conversor legado y una vista previa de migración en memoria; esta no escribe bases de datos. `Framework.Core` compiló en Debug sin errores. Falta integrar lectura de bases, persistencia y juego. No se alteraron combate, progresión ni datos existentes.
+La secuencia completa y el estado de cada tarea están en `HOJA_DE_RUTA.md`. Se agregaron los tipos compartidos, el serializador v1, el conversor legado, la vista previa en memoria y columnas opcionales con migraciones para SQLite/MySQL. La vista previa no escribe datos y las migraciones no convierten personajes. `Framework.Core`, `Intersect.Server.Core` e `Intersect.Server` compilaron en Debug sin errores; la generación de claves de red impidió una compilación con dependencias completas en este entorno. Falta aplicar las migraciones en bases de prueba e integrar lectura/escritura con el juego.
 
 ## Decisiones confirmadas
 
