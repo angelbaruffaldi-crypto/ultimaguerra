@@ -9,7 +9,8 @@
 - Repositorio: `Intersect-Engine-v0.8.0-beta.582`.
 - Rama activa: `ultima-guerra`.
 - Versión base: `v0.8.0-beta.582` (beta), commit `875178d5a48a372a15340bc4ca9965a56c389e0b`.
-- `origin` todavía apunta a `https://github.com/AscensionGameDev/Intersect-Engine.git`; no se configuró ni publicó un fork personal.
+- Se creó el remoto `upstream` para el repositorio oficial. `origin` también sigue apuntando al oficial hasta que el usuario cree su fork personal; no se ha hecho ningún `push`.
+- Punto de control local: commit `cc845bed3` (`Prepare verified Ultima Guerra engine baseline`), en la rama `ultima-guerra`.
 - Submódulos descargados: LiteNetLib `e5cd7ea0069f57cf3ba99e638139499cc22442a8`; DockPanel Suite `a373cf7fbaa0a79c4790ac5cb26eba48944a58bc`.
 - .NET SDK disponible: 8.0.427 y 10.0.401. Git for Windows: 2.56.0.windows.4.
 
