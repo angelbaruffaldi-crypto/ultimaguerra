@@ -1,5 +1,7 @@
 # El Legado de la Última Guerra — Fase 1: preparación, auditoría y compilación
 
+> Seguimiento por etapas y estados: [`HOJA_DE_RUTA.md`](HOJA_DE_RUTA.md).
+
 **Fecha:** 28 de octubre de 2026
 **Estado:** auditoría estática, compilación, 44 pruebas de servidor, arranque, migraciones, persistencia tras reinicio y flujo cliente-servidor-editor confirmados. La rama `ultima-guerra` ya está publicada en el remoto personal según el usuario y sigue a `origin/ultima-guerra` en la copia local.
 
@@ -206,7 +208,7 @@ La creación de cuenta y personaje se probó de extremo a extremo según confirm
 
 ### Fase 2 — Implementación de atributos
 
-Comenzar solo con autorización del usuario. Cambiar un sistema transversal a la vez y mantener cliente, servidor, editor, contenido y persistencia sincronizados.
+La implementación comienza después de documentar y revisar el contrato de los atributos y las migraciones. Cambiar un sistema transversal a la vez y mantener cliente, servidor, editor, contenido y persistencia sincronizados.
 
 ## 9. Decisiones confirmadas del juego
 

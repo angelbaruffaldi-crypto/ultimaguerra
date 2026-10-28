@@ -1,7 +1,7 @@
 # Estado del proyecto — El Legado de la Última Guerra
 
 **Actualizado:** 28 de octubre de 2026
-**Fase:** 1 — preparación y auditoría
+**Fase:** 2 — diseño de mecánicas y contratos
 **Estado general:** servidor inicia, completa migraciones y conserva los datos tras reinicio en carpeta temporal; cliente, servidor y editor funcionan juntos en la prueba local. La cuenta y el personaje persisten tras reiniciar el servidor; el mapa guardado se ve en el cliente con terreno, zonas de piedra y sprite.
 
 ## Base de trabajo
@@ -10,7 +10,7 @@
 - Rama activa: `ultima-guerra`.
 - Versión base: `v0.8.0-beta.582` (beta), commit `875178d5a48a372a15340bc4ca9965a56c389e0b`.
 - `origin` apunta al repositorio personal `https://github.com/angelbaruffaldi-crypto/ultimaguerra.git`; `upstream` conserva el repositorio oficial. El usuario confirmó la publicación de `ultima-guerra`; localmente la rama sigue a `origin/ultima-guerra`.
-- Último punto de control: commit `c5b14a754` (`Document personal fork remote configuration`), en la rama `ultima-guerra`; al iniciar esta actualización, el árbol de trabajo estaba limpio.
+- Punto de control de código previo a esta actualización: commit `50097cceb` (`Record local sprite inventory and stats priority`), en la rama `ultima-guerra`; estaba sincronizado con `origin`.
 - Submódulos descargados: LiteNetLib `e5cd7ea0069f57cf3ba99e638139499cc22442a8`; DockPanel Suite `a373cf7fbaa0a79c4790ac5cb26eba48944a58bc`.
 - .NET SDK disponible: 8.0.427 y 10.0.401. Git for Windows: 2.56.0.windows.4.
 
@@ -43,10 +43,7 @@
 
 ## Próximos pasos
 
-1. Completar el inventario de estadísticas y mecánicas: fórmulas, combate, movimiento, objetos, clases/NPC, editor, interfaz, eventos y persistencia.
-2. Acordar el significado y el uso de cada uno de los cinco atributos confirmados antes de cambiar las mecánicas o datos existentes.
-3. Más adelante, probar los sprites ya guardados con el formato actual del motor; sus dimensiones no son todas iguales y la carpeta de recursos está fuera del repositorio Git.
-4. Antes de una compilación Release, revisar el detalle del aviso de licencia de ImageSharp y resolver la generación de claves de red que faltó en Release.
+La secuencia completa y el estado de cada tarea están en `HOJA_DE_RUTA.md`. El mapeo transversal inicial de estadísticas está completado; el siguiente entregable es la propuesta de reglas y progresión para los cinco atributos. No se han cambiado sus reglas.
 
 ## Decisiones confirmadas
 
