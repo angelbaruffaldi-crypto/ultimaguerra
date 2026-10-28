@@ -43,16 +43,15 @@
 
 ## Próximos pasos
 
-1. Completar la auditoría de solo lectura del flujo actual de estadísticas y del formato de sprites; el primer resultado queda en `AUDITORIA_PREPARACION.md`.
-2. Incorporar al repositorio copias de prueba de cuerpo, una pieza de armadura y un arma del generador Universal LPC, conservando los originales, para medir cuadrícula, direcciones, acciones y alineación en vez de deducirlo solo de capturas.
-3. Con esos archivos, decidir si el formato ampliado cabe en el paperdoll actual o necesita un perfil/controlador de animación. No modificar el motor ni el arte hasta revisar esa prueba.
-4. Definir después el contrato de Fuerza, Destreza, Inteligencia, Agilidad y Sabiduría con sus fórmulas y reglas, y diseñar la migración antes de tocar mecánicas.
-5. Antes de una compilación Release, confirmar el aviso de licencia de ImageSharp en el detalle de salida y resolver la generación de claves de red que faltó en Release.
+1. Completar el inventario de estadísticas y mecánicas: fórmulas, combate, movimiento, objetos, clases/NPC, editor, interfaz, eventos y persistencia.
+2. Acordar el significado y el uso de cada uno de los cinco atributos confirmados antes de cambiar las mecánicas o datos existentes.
+3. Más adelante, probar los sprites ya guardados con el formato actual del motor; sus dimensiones no son todas iguales y la carpeta de recursos está fuera del repositorio Git.
+4. Antes de una compilación Release, revisar el detalle del aviso de licencia de ImageSharp y resolver la generación de claves de red que faltó en Release.
 
 ## Decisiones confirmadas
 
 - El nombre oficial del juego es **El Legado de la Última Guerra**; la carpeta local se llama `ultima guerra`.
 - La primera prueba técnica del motor usó sprites estándar y el flujo cliente/editor ya se comprobó.
-- Se explorará el uso de spritesheets más completos del generador Universal LPC para cuerpo, armadura y armas. Los ejemplos comentados en el chat (base/armadura de 493 × 2048 y espada de 682 × 2048) aún no están en el repositorio; dimensiones y alineación necesitan comprobarse con los archivos originales.
+- Los sprites LPC para cuerpo, armadura y armas ya están en `Client and Editor/resources/entities` y `Client and Editor/resources/paperdolls`. Sus dimensiones se registraron en `AUDITORIA_PREPARACION.md`; la correspondencia de celdas y alineación todavía requiere prueba técnica.
 - Las animaciones de combate con brazos, armas y equipo en capas quedan como objetivo posterior, sujeto a validar las hojas y el formato de animación.
 - La prioridad inicial es motor, mecánicas y herramientas.

@@ -198,11 +198,11 @@ La creación de cuenta y personaje se probó de extremo a extremo según confirm
 
 ### Fase 1B — Diseño de cambios
 
-1. Completar el mapa de datos actual de estadísticas y el inventario del sistema de sprites/paperdolls, en modo de solo lectura; el primer registro está en `AUDITORIA_PREPARACION.md`.
-2. Revisar hojas reales del generador Universal LPC y comprobar cuadrícula, direcciones, acciones y alineación de cuerpo/equipo. Los ejemplos vistos en la conversación todavía no están en la carpeta del proyecto.
-3. Definir con el usuario semántica, límites y fórmulas de Fuerza, Destreza, Inteligencia, Agilidad y Sabiduría.
-4. Preparar estrategia de migración para personajes, clases, NPC, equipo, hechizos, contenido y fórmulas.
-5. Definir pruebas de regresión y criterios de aceptación antes de implementar.
+1. Prioridad inmediata: completar el inventario de estadísticas y mecánicas enlazadas. El primer alcance transversal quedó documentado en `AUDITORIA_PREPARACION.md`.
+2. Definir con el usuario semántica, límites y fórmulas de Fuerza, Destreza, Inteligencia, Agilidad y Sabiduría.
+3. Preparar estrategia de migración para personajes, clases, NPC, equipo, hechizos, contenido y fórmulas.
+4. Definir pruebas de regresión y criterios de aceptación antes de implementar.
+5. En una fase posterior, validar en el motor los sprites ya guardados localmente en las carpetas `entities` y `paperdolls`.
 
 ### Fase 2 — Implementación de atributos
 
