@@ -58,9 +58,9 @@ La dirección visual queda en evaluación: el motor se probó primero con sprite
 
 ## Próxima secuencia segura
 
-1. Priorizar la auditoría de atributos y mecánicas: completar el inventario de lugares donde se leen y escriben sus índices y fórmulas.
-2. Acordar el significado y los usos de Fuerza, Destreza, Inteligencia, Agilidad y Sabiduría antes de implementar; no inferir efectos solo por los nombres.
-3. Después, usar los recursos ya guardados para medir celdas por acción/dirección y validar la alineación de cuerpo, armadura y armas en una prueba separada.
-4. Revisar y acordar cualquier extensión del renderizador antes de modificarlo. Mantener los PNG originales y registrar licencias antes de distribución.
+1. Consultar `PROPUESTA_REGLAS_MECANICAS_v0.1.md` para la primera recomendación de uso de atributos y combate.
+2. Consultar `MATRIZ_MIGRACION_ATRIBUTOS.md` antes de cambiar enum, fórmulas, contenido, paquetes o datos guardados.
+3. Usar más adelante los recursos ya guardados para medir celdas por acción/dirección y validar la alineación de cuerpo, armadura y armas en una prueba separada.
+4. Mantener los PNG originales y registrar licencias antes de distribución.
 
 Hasta completar esas comprobaciones, no implementar nuevos atributos ni cambiar el renderizador o los recursos del juego.

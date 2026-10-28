@@ -43,7 +43,7 @@
 
 ## Próximos pasos
 
-La secuencia completa y el estado de cada tarea están en `HOJA_DE_RUTA.md`. El mapeo transversal inicial de estadísticas está completado; el siguiente entregable es la propuesta de reglas y progresión para los cinco atributos. No se han cambiado sus reglas.
+La secuencia completa y el estado de cada tarea están en `HOJA_DE_RUTA.md`. El mapeo de impacto, la propuesta mecánica v0.1 y la matriz inicial de migración están documentados. No se han cambiado reglas ni código de mecánicas; la siguiente etapa es cerrar el formato de datos y preparar la implementación por partes.
 
 ## Decisiones confirmadas
 

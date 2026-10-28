@@ -13,8 +13,8 @@ Esta hoja es el registro principal del avance. Cada tarea cambia a **COMPLETADO*
 |---|---|---|
 | 0. Resguardar el código y preparar el fork | **COMPLETADO** | Código fuente versionado, rama propia publicada y `upstream` conservado. |
 | 1. Obtener una base técnica comprobada | **COMPLETADO** para Debug; **PENDIENTE** para Release | Pruebas y flujo local pasan; faltan resolver claves de red y verificar ImageSharp en Release. |
-| 2. Diseñar las reglas principales del juego | **EN CURSO** | Hay un primer mapa de impacto de estadísticas; falta especificar atributos, combate y progresión. |
-| 3. Diseñar datos y migraciones | **PENDIENTE** | Contratos, compatibilidad y plan de migración revisados antes de implementar. |
+| 2. Diseñar las reglas principales del juego | **EN CURSO** | Propuesta mecánica v0.1 escrita; faltan balance numérico y reglas de progresión/muerte/PvP. |
+| 3. Diseñar datos y migraciones | **EN CURSO** | Inventario y secuencia de migración preparados; falta concretar formatos y probar conversión/reversión. |
 | 4. Implementar una primera versión jugable | **PENDIENTE** | Bucle principal completo y probado en cliente/servidor/editor. |
 | 5. Crear mundo y contenido inicial | **PENDIENTE** | Zona inicial, enemigos, objetos, misiones y recorrido jugable. |
 | 6. Adaptar los sprites ampliados | **PENDIENTE** | Archivos LPC probados por acción/dirección; se decide si basta la configuración existente o hay que extender el renderizador. |
@@ -46,14 +46,16 @@ Esta hoja es el registro principal del avance. Cada tarea cambia a **COMPLETADO*
 
 - **COMPLETADO** — Confirmados los cinco nombres: Fuerza, Destreza, Inteligencia, Agilidad y Sabiduría.
 - **COMPLETADO** — Mapeo transversal inicial del sistema actual documentado en `AUDITORIA_PREPARACION.md`: enum, fórmulas, movimiento, jugador, objetos, hechizos, clases/NPC, editor, interfaz, eventos y persistencia.
-- **PENDIENTE** — Preparar una propuesta de diseño para cada atributo: qué representa, qué acciones afecta y cómo se calcula.
+- **COMPLETADO** — Propuesta v0.1 de función de cada atributo, estadísticas derivadas, progresión inicial y criterios de aceptación en `PROPUESTA_REGLAS_MECANICAS_v0.1.md`.
+- **PENDIENTE** — Calibrar coeficientes, topes y valores iniciales con una prueba de combate vertical.
 - **PENDIENTE** — Definir valores iniciales, crecimiento por nivel, puntos asignables, límites, reinicio y reglas de clase.
 - **PENDIENTE** — Definir cómo equipo, hechizos, efectos y enemigos interactúan con los nuevos atributos.
 
 ### 2.2 Combate
 
+- **COMPLETADO** — Propuesta de resolución autoritativa en servidor y escalado físico/mágico registrada en el documento v0.1.
 - **PENDIENTE** — Acordar combate cuerpo a cuerpo, distancia y magia; daño, defensas, alcance, cadencia, interrupciones y estados.
-- **PENDIENTE** — Definir muerte, reaparición, pérdida/recuperación de objetos y reglas PvP/PvE.
+- **PENDIENTE** — Definir muerte, reaparición, pérdida/recuperación de objetos y reglas PvP; el primer prototipo propuesto se limita a PvE.
 - **PENDIENTE** — Fijar fórmulas y variables que estarán disponibles en el editor sin permitir que el cliente decida resultados.
 
 ### 2.3 Bucle principal y alcance
@@ -66,7 +68,8 @@ Esta hoja es el registro principal del avance. Cada tarea cambia a **COMPLETADO*
 
 ## Fase 3 — Diseñar datos y migraciones
 
-- **PENDIENTE** — Crear una tabla campo por campo entre datos actuales de Intersect y el modelo del juego.
+- **COMPLETADO** — Inventario inicial de datos afectados, conversión candidata y riesgos en `MATRIZ_MIGRACION_ATRIBUTOS.md`.
+- **PENDIENTE** — Definir formato versionado e identificadores estables para atributos primarios y estadísticas derivadas.
 - **PENDIENTE** — Diseñar compatibilidad para jugadores, clases, NPC, objetos, hechizos, condiciones/eventos y fórmulas existentes.
 - **PENDIENTE** — Definir migraciones y recuperación para SQLite y MySQL; probarlas con una copia de datos, nunca con la única copia.
 - **PENDIENTE** — Definir versiones cliente-servidor y comportamiento cuando sus datos o protocolos no coincidan.
