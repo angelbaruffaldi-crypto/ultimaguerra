@@ -1,7 +1,7 @@
 # El Legado de la Última Guerra — Fase 1: preparación, auditoría y compilación
 
-**Fecha:** 27 de octubre de 2026
-**Estado:** auditoría estática, compilación, arranque, migraciones, persistencia tras reinicio y flujo cliente-servidor-editor confirmados en carpetas temporales. El usuario guardó un mapa simple y la captura confirma que el cliente muestra el terreno, zonas de piedra y sprite.
+**Fecha:** 28 de octubre de 2026
+**Estado:** auditoría estática, compilación, 44 pruebas de servidor, arranque, migraciones, persistencia tras reinicio y flujo cliente-servidor-editor confirmados. La rama `ultima-guerra` ya está publicada en el remoto personal según el usuario y sigue a `origin/ultima-guerra` en la copia local.
 
 ## 1. Resumen ejecutivo
 
@@ -9,7 +9,7 @@
 
 La etiqueta es **beta**, no una versión estable. Se conserva como línea de base para que el código corresponda a los ejecutables existentes. Antes de usarla como base de producción, habrá que decidir si se continúa con esta beta o se migra a una versión estable disponible.
 
-La compilación inicial de la solución completa con .NET 8.0.427 fue correcta en 27,1 segundos, con 2.179 advertencias. Tras restaurar SQLitePCLRaw, una compilación Debug incremental terminó correctamente en 13,9 segundos, con 79 advertencias y sin errores. Esto confirma que la actualización compila; no demuestra todavía que SQLite conserve datos ni que cliente y servidor puedan conectarse.
+La compilación inicial de la solución completa con .NET 8.0.427 fue correcta en 27,1 segundos, con 2.179 advertencias. La última salida compartida por el usuario confirma `Intersect.Tests.Server`: 44 pruebas correctas, 0 errores, 0 omitidas; compilación Debug correcta en 31,1 segundos con 343 advertencias. El flujo local de servidor, cliente y editor también quedó confirmado por el usuario.
 
 No se cambiaron mecánicas. En la copia de trabajo hay dos cambios de dependencias: `SixLabors.ImageSharp` 3.1.11 → 3.2.0 en `Intersect.Server/Intersect.Server.csproj`, y la biblioteca nativa `SQLitePCLRaw.lib.e_sqlite3` 2.1.10 → 2.1.14 en `Intersect.Server.Core/Intersect.Server.Core.csproj`. Se mantiene `SQLitePCLRaw.bundle_green` en 2.1.10 porque NuGet no ofrece 2.1.14 para ese paquete. El registro del usuario confirma que ImageSharp 3.2.0 permite continuar Debug sin clave y que Release requiere una clave válida. `lib.e_sqlite3` 2.1.14 queda fuera del rango afectado por GHSA-2m69-gcr7-jv3q (hasta 2.1.11); la restauración y compilación Debug posteriores fueron correctas. La persistencia de la cuenta y el personaje se confirmó después de reiniciar el servidor.
 
@@ -191,16 +191,18 @@ La creación de cuenta y personaje se probó de extremo a extremo según confirm
 
 ### Fase 1A — Cerrar preparación
 
-1. Configurar una clave ImageSharp válida o evaluar una alternativa antes de compilar Release.
-2. Confirmar que la compilación ya no muestra el aviso de licencia de ImageSharp y revisar la generación de claves antes de usar Release.
-3. Autenticar GitHub y subir `ultima-guerra` a `origin`, manteniendo `upstream` como referencia del motor oficial.
+1. Compilación Debug y pruebas del servidor: completadas según la salida aportada por el usuario.
+2. Flujo local servidor-cliente-editor, persistencia y mapa de prueba: comprobados según el usuario.
+3. Rama `ultima-guerra` publicada en el fork personal; `upstream` conserva el motor oficial.
+4. Antes de una compilación Release: revisar el detalle del aviso de ImageSharp y resolver la generación de claves de red que no se produjo en el intento anterior.
 
 ### Fase 1B — Diseño de cambios
 
-1. Documentar el flujo de datos actual de atributos desde editor/descriptores hasta servidor, cliente, paquetes y persistencia.
-2. Definir semántica, límites y fórmulas de Fuerza, Destreza, Inteligencia, Agilidad y Sabiduría.
-3. Preparar estrategia de migración de personajes, clases, NPC, equipo, hechizos, contenido y fórmulas.
-4. Definir pruebas de regresión y criterios de aceptación antes de implementar.
+1. Completar el mapa de datos actual de estadísticas y el inventario del sistema de sprites/paperdolls, en modo de solo lectura; el primer registro está en `AUDITORIA_PREPARACION.md`.
+2. Revisar hojas reales del generador Universal LPC y comprobar cuadrícula, direcciones, acciones y alineación de cuerpo/equipo. Los ejemplos vistos en la conversación todavía no están en la carpeta del proyecto.
+3. Definir con el usuario semántica, límites y fórmulas de Fuerza, Destreza, Inteligencia, Agilidad y Sabiduría.
+4. Preparar estrategia de migración para personajes, clases, NPC, equipo, hechizos, contenido y fórmulas.
+5. Definir pruebas de regresión y criterios de aceptación antes de implementar.
 
 ### Fase 2 — Implementación de atributos
 
@@ -211,7 +213,8 @@ Comenzar solo con autorización del usuario. Cambiar un sistema transversal a la
 - Nombre oficial: **El Legado de la Última Guerra** (la carpeta local conserva el nombre `ultima guerra`).
 - Género: MMORPG 2D cenital de fantasía medieval.
 - Atributos futuros: Fuerza, Destreza, Inteligencia, Agilidad y Sabiduría.
-- Gráficos iniciales: sprites pixel art estilo RPG Maker XP.
-- Dirección futura: desplazamiento tradicional y combate con capas de brazos/armas/equipo.
+- El motor se validó inicialmente con sprites estándar estilo RPG Maker XP.
+- Se está evaluando usar spritesheets Universal LPC más completos para personajes y equipo; aún hay que validar los archivos originales contra la cuadrícula y el renderizador de Intersect.
+- Dirección futura: desplazamiento tradicional y combate con capas de brazos/armas/equipo sincronizadas por acción y dirección.
 - Prioridad: estabilidad, mecánicas y herramientas antes de una renovación artística.
 - En esta fase no se reemplazan estadísticas, combate ni editor.

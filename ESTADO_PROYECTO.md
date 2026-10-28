@@ -1,6 +1,6 @@
 # Estado del proyecto — El Legado de la Última Guerra
 
-**Actualizado:** 27 de octubre de 2026
+**Actualizado:** 28 de octubre de 2026
 **Fase:** 1 — preparación y auditoría
 **Estado general:** servidor inicia, completa migraciones y conserva los datos tras reinicio en carpeta temporal; cliente, servidor y editor funcionan juntos en la prueba local. La cuenta y el personaje persisten tras reiniciar el servidor; el mapa guardado se ve en el cliente con terreno, zonas de piedra y sprite.
 
@@ -9,15 +9,15 @@
 - Repositorio: `Intersect-Engine-v0.8.0-beta.582`.
 - Rama activa: `ultima-guerra`.
 - Versión base: `v0.8.0-beta.582` (beta), commit `875178d5a48a372a15340bc4ca9965a56c389e0b`.
-- `origin` apunta al repositorio personal `https://github.com/angelbaruffaldi-crypto/ultimaguerra.git`; `upstream` conserva el repositorio oficial. El repositorio personal respondió como vacío y la rama local aún no se publicó porque falta autenticar GitHub desde este entorno.
-- Último punto de control local: commit `ee250ebd2` (`Record Release build limitation`), en la rama `ultima-guerra`; el árbol de trabajo está limpio.
+- `origin` apunta al repositorio personal `https://github.com/angelbaruffaldi-crypto/ultimaguerra.git`; `upstream` conserva el repositorio oficial. El usuario confirmó la publicación de `ultima-guerra`; localmente la rama sigue a `origin/ultima-guerra`.
+- Último punto de control: commit `c5b14a754` (`Document personal fork remote configuration`), en la rama `ultima-guerra`; al iniciar esta actualización, el árbol de trabajo estaba limpio.
 - Submódulos descargados: LiteNetLib `e5cd7ea0069f57cf3ba99e638139499cc22442a8`; DockPanel Suite `a373cf7fbaa0a79c4790ac5cb26eba48944a58bc`.
 - .NET SDK disponible: 8.0.427 y 10.0.401. Git for Windows: 2.56.0.windows.4.
 
 ## Cambios del proyecto
 
-- La eliminación de `AGENTS.md` quedó registrada en el commit local `8e6cc353a2b10fe44c9e3a15c4571fa103c22e88` (`Remove AGENTS.md`).
-- `Intersect.Server/Intersect.Server.csproj`: ImageSharp actualizado de 3.1.11 a 3.2.0. El cambio aún requiere revisión/commit.
+- La eliminación de `AGENTS.md` y las actualizaciones de dependencias quedaron registradas en la historia de la rama; no son cambios pendientes.
+- `Intersect.Server/Intersect.Server.csproj`: ImageSharp actualizado de 3.1.11 a 3.2.0.
 - `Intersect.Server.Core/Intersect.Server.Core.csproj`: `SQLitePCLRaw.lib.e_sqlite3` actualizado de 2.1.10 a 2.1.14; `bundle_green` se conserva en 2.1.10. Restauración y compilación Debug con esos assets: correctas.
 - Se corrigieron las expresiones SQL de las migraciones SQLite `20221016001123_MultipleBonusEffectsMigration` y `20221119214350_ItemProperties` para usar literales de texto entre comillas simples. En la segunda migración se corrigieron las cuatro tablas de objetos afectadas. Las consultas MySQL y las mecánicas quedaron intactas.
 
@@ -31,7 +31,7 @@
 - Compilación posterior a la corrección: `Intersect.Server.Core` compiló con 65 advertencias y 0 errores; `Intersect.Server` compiló con 7 advertencias y 0 errores (build con referencias de proyecto ya generadas). Un build completo de la solución en el entorno de Codex no pudo ejecutar `KeyGenerationTask` de `Intersect.Network` (MSB4216, host de tareas MSBuild no disponible); esto es independiente del cambio SQL. Un intento separado de compilar `Intersect.Network` en Release también salió con código 1 sin resumen de error útil y no generó `bin\Release\keys\network.handshake.bkey.pub`; las pruebas Debug sí pasaron.
 - Verificación de ejecución: en la carpeta temporal `Intersect-smoke-fix2-...`, el servidor completó migraciones, creó una clase predeterminada y un mapa, llegó a `Starting main thread` y escuchó UDP 5400. Tras cerrar y reiniciar con la misma carpeta, conservó clase, mapa, cuenta y personaje; persistencia SQLite confirmada según la verificación del usuario. El cliente conectó y fue aprobado por `127.0.0.1:5400`. El usuario abrió el editor y guardó un mapa simple; la captura posterior confirma que el cliente muestra el terreno, las zonas de piedra y el sprite. No se probó acceso externo. El build completo de la solución en Codex sigue bloqueado por MSB4216 al iniciar `KeyGenerationTask`.
 - Avisos no bloqueantes durante el arranque: carpeta opcional `resources\plugins` ausente; UPnP no disponible; el certificado HTTPS carece de extensión SAN. Revisar el certificado antes de usar HTTPS en un navegador; ninguno de estos avisos impidió que el servidor local arrancara.
-- Pruebas del servidor: el usuario reportó `Intersect.Tests.Server` con **44 correctas, 0 errores y 0 omitidas** en 4,3 s; compilación Debug correcta con 5 advertencias en 10,6 s. No se recibió el detalle de esas advertencias, por lo que queda pendiente confirmar si entre ellas aparece el aviso de licencia de ImageSharp.
+- Pruebas del servidor: resultado más reciente aportado por el usuario para `Intersect.Tests.Server`: **44 correctas, 0 errores y 0 omitidas** en 3,8 s; compilación Debug correcta con 343 advertencias en 31,1 s. No se recibió el detalle de esas advertencias, así que no se puede confirmar desde ese resumen si aparece un aviso de licencia de ImageSharp.
 - Flujo local cliente-servidor-editor: **confirmado**. Creación y persistencia de cuenta/personaje, guardado del mapa y visualización de terreno, zonas de piedra y sprite en el cliente: **confirmados por el usuario y la captura**.
 
 ## Hallazgos ya comprobados
@@ -43,14 +43,16 @@
 
 ## Próximos pasos
 
-1. Configurar una licencia válida de ImageSharp para las compilaciones del servidor o evaluar una alternativa.
-2. Confirmar en el detalle de compilación que no aparece el aviso de licencia de ImageSharp; antes de Release, verificar también la generación de claves de red en esa configuración.
-3. Autenticar GitHub y publicar `ultima-guerra` en `origin`; conservar `upstream` para el motor oficial.
-4. Después de validar la base, diseñar el contrato de los cinco atributos y su migración, sin implementarlos hasta autorización.
+1. Completar la auditoría de solo lectura del flujo actual de estadísticas y del formato de sprites; el primer resultado queda en `AUDITORIA_PREPARACION.md`.
+2. Incorporar al repositorio copias de prueba de cuerpo, una pieza de armadura y un arma del generador Universal LPC, conservando los originales, para medir cuadrícula, direcciones, acciones y alineación en vez de deducirlo solo de capturas.
+3. Con esos archivos, decidir si el formato ampliado cabe en el paperdoll actual o necesita un perfil/controlador de animación. No modificar el motor ni el arte hasta revisar esa prueba.
+4. Definir después el contrato de Fuerza, Destreza, Inteligencia, Agilidad y Sabiduría con sus fórmulas y reglas, y diseñar la migración antes de tocar mecánicas.
+5. Antes de una compilación Release, confirmar el aviso de licencia de ImageSharp en el detalle de salida y resolver la generación de claves de red que faltó en Release.
 
 ## Decisiones confirmadas
 
 - El nombre oficial del juego es **El Legado de la Última Guerra**; la carpeta local se llama `ultima guerra`.
-- Se usarán sprites de proporciones RPG Maker XP al inicio.
-- Las animaciones de combate con brazos, armas y equipo en capas quedan como objetivo posterior.
+- La primera prueba técnica del motor usó sprites estándar y el flujo cliente/editor ya se comprobó.
+- Se explorará el uso de spritesheets más completos del generador Universal LPC para cuerpo, armadura y armas. Los ejemplos comentados en el chat (base/armadura de 493 × 2048 y espada de 682 × 2048) aún no están en el repositorio; dimensiones y alineación necesitan comprobarse con los archivos originales.
+- Las animaciones de combate con brazos, armas y equipo en capas quedan como objetivo posterior, sujeto a validar las hojas y el formato de animación.
 - La prioridad inicial es motor, mecánicas y herramientas.
