@@ -14,7 +14,7 @@ namespace Intersect.Server.Migrations.Sqlite.Game
             switch (migrationBuilder.ActiveProvider)
             {
                 case "Microsoft.EntityFrameworkCore.Sqlite":
-                    _ = migrationBuilder.Sql("UPDATE Items SET Effects = \"[{\"\"Type\"\":\" || Effect_Type || \",\"\"Percentage\"\":\" || Effect_Percentage || \"}]\" WHERE Effect_Percentage <> 0;");
+                    _ = migrationBuilder.Sql("UPDATE Items SET Effects = '[{\"Type\":' || Effect_Type || ',\"Percentage\":' || Effect_Percentage || '}]' WHERE Effect_Percentage <> 0;");
                     // Drop columns doesn't work, and even the roundabout way of doing it just isn't working even in SQLite Studio
                     break;
 

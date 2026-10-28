@@ -29,10 +29,10 @@ namespace Intersect.Server.Migrations.Sqlite.Player
             switch (migrationBuilder.ActiveProvider)
             {
                 case "Microsoft.EntityFrameworkCore.Sqlite":
-                    _ = migrationBuilder.Sql("UPDATE Bag_Items SET ItemProperties = \"{\"\"StatModifiers\"\":\" || StatBuffs || \"}\" WHERE StatBuffs <> \"[0,0,0,0,0]\";");
-                    _ = migrationBuilder.Sql("UPDATE Guild_Bank SET ItemProperties = \"{\"\"StatModifiers\"\":\" || StatBuffs || \"}\" WHERE StatBuffs <> \"[0,0,0,0,0]\";");
-                    _ = migrationBuilder.Sql("UPDATE Player_Bank SET ItemProperties = \"{\"\"StatModifiers\"\":\" || StatBuffs || \"}\" WHERE StatBuffs <> \"[0,0,0,0,0]\";");
-                    _ = migrationBuilder.Sql("UPDATE Player_Items SET ItemProperties = \"{\"\"StatModifiers\"\":\" || StatBuffs || \"}\" WHERE StatBuffs <> \"[0,0,0,0,0]\";");
+                    _ = migrationBuilder.Sql("UPDATE Bag_Items SET ItemProperties = '{\"StatModifiers\":' || StatBuffs || '}' WHERE StatBuffs <> '[0,0,0,0,0]';");
+                    _ = migrationBuilder.Sql("UPDATE Guild_Bank SET ItemProperties = '{\"StatModifiers\":' || StatBuffs || '}' WHERE StatBuffs <> '[0,0,0,0,0]';");
+                    _ = migrationBuilder.Sql("UPDATE Player_Bank SET ItemProperties = '{\"StatModifiers\":' || StatBuffs || '}' WHERE StatBuffs <> '[0,0,0,0,0]';");
+                    _ = migrationBuilder.Sql("UPDATE Player_Items SET ItemProperties = '{\"StatModifiers\":' || StatBuffs || '}' WHERE StatBuffs <> '[0,0,0,0,0]';");
                     // Drop columns doesn't work, and even the roundabout way of doing it just isn't working even in SQLite Studio
                     _ = migrationBuilder.Sql(@"
 PRAGMA foreign_keys = 0;
